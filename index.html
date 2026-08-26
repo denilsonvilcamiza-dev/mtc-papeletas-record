@@ -580,6 +580,17 @@ const DB = {
     vigente: "-",
     estado: "SIN LICENCIA",
     papeletas: []
+   },
+  "44997765": {
+    nombre: "CALLA MENDOZA JUAN EDWIN",
+    dni: "44997765",
+    licencia: "Q44997765",
+    clase: "B-II-B",
+    Expe : "26/08/2031",
+    Reva: "26/08/2031",
+    Restr: " CON LENTES "
+    estado: "VIGENTE",
+    papeletas: []
   }
 };
 
@@ -671,11 +682,13 @@ function buscar() {
   sec.innerHTML = `
     <div style="padding: 0 24px;">
       <div class="admin-info">
-        ${ir("CONSULTA DEL ADMINISTRADO:", d.nombre)}
+        ${ir("APELLIDOS Y NOMBRE:", d.nombre)}
         ${ir("NRO. DE DOCUMENTO DE IDENTIDAD:", d.dni)}
         ${ir("NRO. DE LICENCIA:", d.licencia)}
         ${ir("CLASE Y CATEGORIA:", d.clase)}
-        ${ir("VIGENTE HASTA:", d.vigente)}
+        ${ir("FECHA DE EXPEDICION:", d.Expe)}
+        ${ir("FECHA DE REVALIDACION:", d.Reva)}
+        ${ir("RESTRICCIONES:", d.Restr)}
         ${ir("ESTADO DE LA LICENCIA:", d.estado)}
       </div>
       <div class="list-title">LISTADO DE PAPELETAS PENDIENTES DE PAGO Y/O SANCIONES VIGENTES</div>
