@@ -614,8 +614,8 @@ const DB = {
       { entidad:"MINICIPALIDAD DE AREQUIPA",  papeleta:"773798",   fecha:"03/05/2021", firmme:"", falta:"M03", deuda:"Pendiente de Pago", resolucion:"", telefono:"", retencion:"NO" },
       { entidad:"MINICIPALIDAD DE AREQUIPA",  papeleta:"773799",   fecha:"03/05/2021", firmme:"", falta:"G58", deuda:"Pendiente de Pago", resolucion:"", telefono:"", retencion:"NO" },
      ]
-   },
-   };
+   }
+};
 
 let captchaActual = "";
 
@@ -705,13 +705,11 @@ function buscar() {
   sec.innerHTML = `
     <div style="padding: 0 24px;">
       <div class="admin-info">
-        ${ir("APELLIDOS Y NOMBRE:", d.nombre)}
+        <div class="list-title" style="text-align:center; border:none;">CONSULTA DEL ADMINISTRADO:</div>
         ${ir("NRO. DE DOCUMENTO DE IDENTIDAD:", d.dni)}
         ${ir("NRO. DE LICENCIA:", d.licencia)}
         ${ir("CLASE Y CATEGORIA:", d.clase)}
-        ${ir("FECHA DE EXPEDICION:", d.Expe)}
-        ${ir("FECHA DE REVALIDACION:", d.Reva)}
-        ${ir("RESTRICCIONES:", d.Restr)}
+        ${ir("VIGENTE HASTA:", d.vigente)}
         ${ir("ESTADO DE LA LICENCIA:", d.estado)}
       </div>
       <div class="list-title">LISTADO DE PAPELETAS PENDIENTES DE PAGO Y/O SANCIONES VIGENTES</div>
@@ -720,6 +718,7 @@ function buscar() {
 }
 
 function ir(k, v) {
+  if (v === undefined || v === null || v === "") return "";
   return `<div class="info-row"><span class="info-key">${k}</span><span class="info-val">${v}</span></div>`;
 }
 </script>
