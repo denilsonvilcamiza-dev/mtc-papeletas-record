@@ -616,7 +616,7 @@ const DB = {
      ]
   },
   "44179187": {
-    nombre: "ROQUE HUAMAN LUIS ENRIQUE",
+    nombre: "PISCONTE YBARRA, JEAN PIERRE RAUL",
     dni: "44179187",
     licencia: "Q44179187",
     clase: "A I",
@@ -714,7 +714,7 @@ function buscar() {
   sec.innerHTML = `
     <div style="padding: 0 24px;">
       <div class="admin-info">
-        <div class="list-title" style="text-align:center; border:none;">CONSULTA DEL ADMINISTRADO:</div>
+        ${ir("COLSULTA DEL ADMINISTRADO:", d.nombre)}
         ${ir("NRO. DE DOCUMENTO DE IDENTIDAD:", d.dni)}
         ${ir("NRO. DE LICENCIA:", d.licencia)}
         ${ir("CLASE Y CATEGORIA:", d.clase)}
