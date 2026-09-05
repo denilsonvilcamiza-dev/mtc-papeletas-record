@@ -666,7 +666,25 @@ function buscar() {
 
   document.getElementById("alertNote").style.display = "block";
 
-  const d = DB[val];
+  // Detecta qué tipo de búsqueda está seleccionado (doc / lic / nom)
+  const tipoSel = document.querySelector('input[name="tipo"]:checked').value;
+
+  let d = null;
+  if (tipoSel === "doc") {
+    // Búsqueda por DNI: coincide directo con la clave del objeto DB
+    d = DB[val];
+  } else if (tipoSel === "lic") {
+    // Búsqueda por Nro. de Licencia: hay que recorrer los registros
+    d = Object.values(DB).find(
+      r => r.licencia && r.licencia.toUpperCase() === val.toUpperCase()
+    );
+  } else if (tipoSel === "nom") {
+    // Búsqueda por Apellidos y Nombre: comparación flexible (sin distinguir mayúsculas)
+    d = Object.values(DB).find(
+      r => r.nombre && r.nombre.toUpperCase().includes(val.toUpperCase())
+    );
+  }
+
   if (!d) {
     sec.innerHTML = `<p style="padding:14px 24px; font-size:13px; color:#555;">ℹ No se encontraron registros para: <strong>${val}</strong>.<br>Pruebe con: <strong>43089120</strong> / <strong>12345678</strong> / <strong>87654321</strong> / <strong>74075845</strong> / <strong>46146308</strong></p>`;
     return;
